@@ -91,11 +91,11 @@ async function handleEvent(event) {
     rest.toLowerCase() === String(question.answer).trim().toLowerCase();
 
   if (isCorrect) {
-    // 答對:這裡只負責回「答對」訊息,絕對不會再觸發答錯訊息
-    return client.replyMessage(event.replyToken, {
-      type: 'text',
-      text: pickRandom(CORRECT_REPLIES),
-    });
+  const replyText = question.correctReply || pickRandom(CORRECT_REPLIES);
+  return client.replyMessage(event.replyToken, {
+    type: 'text',
+    text: replyText,
+  });
   } else {
     // 答錯:從答錯語句庫隨機挑一句
     return client.replyMessage(event.replyToken, {
