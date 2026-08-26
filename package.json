@@ -1,0 +1,18 @@
+{
+  "name": "linebot-quiz",
+  "version": "1.0.0",
+  "description": "LINE 解謎遊戲機器人 - 關鍵字叫題目圖片 + 判斷答案 + 答錯隨機回覆",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@line/bot-sdk": "^9.4.2",
+    "express": "^4.19.2",
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "00001": {
+    "image": "https://your-domain.com/images/00001.jpg",
+    "answer": "answer1"
+  },
+  "00002": {
+    "image": "https://your-domain.com/images/00002.jpg",
+    "answer": "answer2"
+  }
+}
