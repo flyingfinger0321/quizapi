@@ -1,12 +1,14 @@
 {
   "00001": {
-    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/image/00001.jpg",
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00001.jpg",
     "answer": "丘",
-    "correctReply": "恭喜你成功燃燒了一秒份量的腦細胞~\n越過前面的山丘\n我在前面等著你🦹"
+    "correctReply": "恭喜你成功燃燒了一秒份量的腦細胞~\n越過前面的山丘\n我在前面等著你🦹",
+    "hint": "有邊念邊，沒邊別念了會不會!"
   },
   "00002": {
-    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/image/00002.jpg",
-    "answer": "diary"
-    "correctReply": "哀呀你是想看我的日記嗎?不准!\n不過去書店找Diary of a Wimpy Kid吧!蠻推薦的，我幾千年前還小的時候很愛看...什麼?你說你去不了書店?(竊笑"
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00002.jpg",
+    "answer": "diary",
+    "correctReply": "哀呀你是想看我的日記嗎?不准!\n不過去書店找Diary of a Wimpy Kid吧!蠻推薦的，我幾千年前還小的時候很愛看...什麼?你說你去不了書店?(竊笑",
+    "hint": "想想A是1*1=1..."
   }
 }
