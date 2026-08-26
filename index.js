@@ -86,7 +86,16 @@ async function handleEvent(event) {
     });
   }
 
-  // 情況二:題號 + 答案 -> 判斷對錯
+  // 情況二:題號 + 「提示」關鍵字 -> 回傳提示內容
+if (rest === '提示') {
+  if (!question.hint) return Promise.resolve(null); // 沒設定提示就不回應
+  return client.replyMessage(event.replyToken, {
+    type: 'text',
+    text: question.hint,
+  });
+}
+
+// 情況三:題號 + 答案 -> 判斷對錯
   const isCorrect =
     rest.toLowerCase() === String(question.answer).trim().toLowerCase();
 
