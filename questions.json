@@ -3,12 +3,268 @@
     "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00001.jpg",
     "answer": "丘",
     "correctReply": "恭喜你成功燃燒了一秒份量的腦細胞~\n越過前面的山丘\n我在前面等著你🦹",
-    "hint": "有邊念邊，沒邊別念了會不會!"
+    "hint": "有邊念邊，沒邊別念了會不會!",
+    "author": "堀地機",
+    "rating": 8
   },
   "00002": {
     "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00002.jpg",
     "answer": "diary",
     "correctReply": "哀呀你是想看我的日記嗎?不准!\n不過去書店找Diary of a Wimpy Kid吧!蠻推薦的，我幾千年前還小的時候很愛看...什麼?你說你去不了書店?(竊笑",
+    "hint": "想想A是1*1=1...",
+    "author": "堀地機",
+    "rating": 9
+  },
+  "00003": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00003.jpg",
+    "answer": "cbdda",
+    "correctReply": "好同學停筆~考卷向後傳，\n拿起你的紅筆，1到5，吸逼豬豬欸(夢回高中🐷",
+    "hint": "第三題好像跟某題有血緣關係(思考"
+  },
+  "00004": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00004.jpg",
+    "answer": "精神科",
+    "correctReply": "沒錯!不要說我不人道(雖然我也不是人🧟\n不過如果你逃出去後精神不佳，推薦去看看精神科ㄎㄎ",
+    "hint": "天干地支生肖星座，不知道哪個派得上用場www"
+  },
+  "00005": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00005.jpg",
+    "answer": "nest",
+    "correctReply": "挖塞這你都看的出來...看來可以把你改造成超級電腦🖥️乖乖當我的爆肝工程師為我工作吧嘿嘿!",
+    "hint": "藉由分成兩類的某種東西組出四個你要的東西🔟",
+    "author": "堀地機",
+    "rating": 10
+  },
+  "00006": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00006.jpg",
+    "answer": "climax",
+    "correctReply": "祝福你以後看到英文都在想羅馬數字，然後想到本王，每天做惡夢(邪惡的笑聲迴盪在你耳邊🦹",
+    "hint": "那個倒過來還被畫線的5好奇怪喔...怎樣才能讓他變成正常的東西呢?🤔"
+  },
+  "00007": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00007.jpg",
+    "answer": "furit",
+    "correctReply": "看不出來在你來挑戰我之前還是個電腦奴阿🤓鍵盤記這麼熟!",
+    "hint": "那個藍色往右邊的箭頭是甚麼先想出來!然後再想想為什麼有斜右上方的箭頭吧!提示夠清楚了吧(我魔真好💖"
+  },
+  "00008": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00008.jpg",
+    "answer": "defeat",
+    "correctReply": "你的防守可扛不住我的輕演敗龍🐲看招!",
+    "hint": "數字好像和他們的鄰居有點關係?"
+  },
+  "00009": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00009.jpg",
+    "answer": "hand",
+    "correctReply": "是想叫我給你拍拍手嗎?想太多了，來，旺福!坐下!🫴🐕",
+    "hint": "兩個字母同時塞到左邊和右邊，還要和黑色的接上後變成新的字母，選項好像不多了?"
+  },
+  "00010": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00010.jpg",
+    "answer": "feel",
+    "correctReply": "You FEEL like an idiot, but you are not! You are a genius!🧠",
+    "hint": "看起來好像小時候常在公園爬的欄杆喔，但我每次都只會往上爬，橫著爬真的好難QAQ"
+  },
+  "00011": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00011.png",
+    "answer": "glue",
+    "correctReply": "哎呀你怎麼知道這八張是用膠水黏的不是便利貼><",
+    "hint": "藍色和灰色有什麼共通點?不要跟我說晴天跟陰天喔!反正你現在也看不到☁️"
+  },
+  "00012": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00012.jpg",
+    "answer": "hero",
+    "correctReply": "你來當英雄?癡心妄想!!!!!",
+    "hint": "不要害羞 講出來。"
+  },
+  "00013": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00013.jpg",
+    "answer": "gameover",
+    "correctReply": "好好笑你是在宣告自己的失敗嗎~我可以成全你的呦!",
+    "hint": "聽說左下角的圖片好像是那啥 黑白棋?"
+  },
+  "00014": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00014.png",
+    "answer": "務惡亞尸",
+    "correctReply": "巫吾武悟嗚嗚嗚嗚嗚...不要看我這樣整天陪你講幹話，對我來說是24小時全年無休加班Rrrr🤯",
+    "hint": "念念看?還有看久一點，會有意想不到的收穫喔~",
+    "author": "堀地機",
+    "rating": 7
+  },
+  "00015": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00015.jpg",
+    "answer": "髮指",
+    "correctReply": "呵呵確實是令人髮指...\n這個世界上有很多事情都令人髮指，\n像是我每天都要面對你的愚蠢回答，這件事就很令人髮指啊!",
+    "hint": "雖然說時間是金錢，但其實摳摳還是很缺TAT"
+  },
+  "00016": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00016.jpg",
+    "answer": "overdose",
+    "correctReply": "其實本王也沒聽過，但不是本王孤陋寡聞!\n只是我們都聽死亡重金屬，\n這種歌聽了會秒睡著，睡著自然就聽不到啦。",
+    "hint": "紅線為什麼在上面想想看，前面可能可以加上一些(?真的還是沒頭緒就去搜尋拿托里吧(扶額"
+  },
+  "00017": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00017.jpg",
+    "answer": "樂在其中",
+    "correctReply": "唉呦你說你走不出迷宮但樂在其中嗎?那你就繼續在裡面迷路吧~\n我時間很多的慢慢陪你玩🫶",
+    "hint": "雖然我猜應該沒有人會開這次的提示錦囊，如果你開了，我只能說你超神ouob看甚麼看?快拼啊!!!"
+  },
+  "00018": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00018.jpg",
+    "answer": "bud",
+    "correctReply": "如果你一直陪我到老，我們也算好兄弟了對吧buddy?",
+    "hint": "背景有些隱藏的等號，先推敲出其中幾個字，然後再找沒有等號的規律吧!"
+  },
+  "00019": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00019.jpg",
+    "answer": "tunnel",
+    "correctReply": "別看了!隧道後面不會有甜甜圈的...可惡我也好想吃ㄚㄚㄚ🥲",
+    "hint": "一個能吃，一個不能吃，但他們長的一樣(不要跟我說生食和熟食喔，扁你👊"
+  },
+  "00020": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00020.jpg",
+    "answer": "total",
+    "correctReply": "您好這邊是RTX 5090顯卡一張，\ntotal 三千五美金，\n換算成我們這裡的幣值大約是十萬秒的腦細胞，請問要分期還是一次付清呢?",
+    "hint": "仔細觀察一下兩個箭頭，\n有甚麼地方不一樣?"
+  },
+  "00021": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00021.png",
+    "answer": "6293",
+    "correctReply": "你喜歡吃牛肉幾分熟?我最喜歡三分熟的人肉惹(流口水😋",
+    "hint": "聽說電腦鍵盤上有個根本沒人會用的輸入法..."
+  },
+  "00022": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00022.png",
+    "answer": "支線",
+    "correctReply": "偷偷跟你說，其實101是小時候掉的自動鉛筆，\n到底是哪個死兔崽子偷走的!!!",
+    "hint": "希望你進來之前有搭過台北捷運...不然只能說保重了><",
+    "author": "堀地機",
+    "rating": 10
+  },
+  "00023": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00023.jpg",
+    "answer": "western",
+    "correctReply": "說到瑞克搖，本王年輕的時候曾和朋友去美術館被技術性關起來，\n為了報復，我們用展覽出錯的電腦撥放瑞克搖XDDD你說我過分?我們被關了30分鐘誒!這種報仇已經是最輕了的吧==",
+    "hint": "他好像是一ㄕ...燈燈燈燈燈 燈 燈~\n痾，剛剛病毒侵入，好像是一首歌來著..."
+  },
+  "00024": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00024.png",
+    "answer": "海水",
+    "correctReply": "其實這題有親戚題!歡迎跳轉到00033泡泡溫泉♨️",
+    "hint": "正看像溫泉，那倒著看呢?",
+    "author": "堀地機",
+    "rating": 7
+  },
+  "00025": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00025.jpg",
+    "answer": "六一居士六四天安門二八年華三重75%酒精",
+    "correctReply": "恭喜你成功燃燒了一秒份量的腦細胞~\n越過前面的山丘\n我在前面等著你🦹",
+    "hint": "有邊念邊，沒邊別念了會不會!"
+  },
+  "00026": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00026.jpg",
+    "answer": "3250",
+    "correctReply": "哀呀你是想看我的日記嗎?不准!\n不過去書店找Diary of a Wimpy Kid吧!蠻推薦的，我幾千年前還小的時候很愛看...什麼?你說你去不了書店?(竊笑",
     "hint": "想想A是1*1=1..."
+  },
+  "00027": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00027.jpg",
+    "answer": "曲",
+    "correctReply": "哇!你答對了耶~\n不過我覺得你應該是看了我的臉才猜到的吧?哈哈哈\n不過我還是要說一句:小丑是很可怕的喔!",
+    "hint": "有一個人長得很奇怪，常常在街上嚇人..."
+  },
+  "00028": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00028.jpg",
+    "answer": "脂肪",
+    "correctReply": "哇!你答對了耶~\n不過我覺得你應該是看了我的臉才猜到的吧?哈哈哈\n不過我還是要說一句:小丑是很可怕的喔!",
+    "hint": "有一個人長得很奇怪，常常在街上嚇人..."
+  },
+  "00029": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00029.jpg",
+    "answer": "9527",
+    "correctReply": "哇!你答對了耶~\n不過我覺得你應該是看了我的臉才猜到的吧?哈哈哈\n不過我還是要說一句:小丑是很可怕的喔!",
+    "hint": "有一個人長得很奇怪，常常在街上嚇人..."
+  },
+  "00030": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00030.jpg",
+    "answer": "歪",
+    "correctReply": "哇!你答對了耶~\n不過我覺得你應該是看了我的臉才猜到的吧?哈哈哈\n不過我還是要說一句:小丑是很可怕的喔!",
+    "hint": "有一個人長得很奇怪，常常在街上嚇人...",
+    "author": "堀地機",
+    "rating": 10
+  },
+  "00031": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00031.jpg",
+    "answer": "crown",
+    "correctReply": "恭喜你成功燃燒了一秒份量的腦細胞~\n越過前面的山丘\n我在前面等著你🦹",
+    "hint": "有邊念邊，沒邊別念了會不會!"
+  },
+  "00032": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00032.jpg",
+    "answer": "netflix",
+    "correctReply": "哀呀你是想看我的日記嗎?不准!\n不過去書店找Diary of a Wimpy Kid吧!蠻推薦的，我幾千年前還小的時候很愛看...什麼?你說你去不了書店?(竊笑",
+    "hint": "想想A是1*1=1..."
+  },
+  "00033": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00033.png",
+    "answer": "oyster",
+    "correctReply": "哇!你答對了耶~\n不過我覺得你應該是看了我的臉才猜到的吧?哈哈哈\n不過我還是要說一句:小丑是很可怕的喔!",
+    "hint": "有一個人長得很奇怪，常常在街上嚇人...",
+    "author": "堀地機",
+    "rating": 7
+  },
+  "00034": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00034.jpg",
+    "answer": "wiki",
+    "correctReply": "哇!你答對了耶~\n不過我覺得你應該是看了我的臉才猜到的吧?哈哈哈\n不過我還是要說一句:小丑是很可怕的喔!",
+    "hint": "有一個人長得很奇怪，常常在街上嚇人..."
+  },
+  "00035": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00035.jpg",
+    "answer": "出",
+    "correctReply": "哇!你答對了耶~\n不過我覺得你應該是看了我的臉才猜到的吧?哈哈哈\n不過我還是要說一句:小丑是很可怕的喔!",
+    "hint": "有一個人長得很奇怪，常常在街上嚇人..."
+  },
+  "00036": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00036.jpg",
+    "answer": "4",
+    "correctReply": "哇!你答對了耶~\n不過我覺得你應該是看了我的臉才猜到的吧?哈哈哈\n不過我還是要說一句:小丑是很可怕的喔!",
+    "hint": "有一個人長得很奇怪，常常在街上嚇人..."
+  },
+  "00037": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00037.jpg",
+    "answer": "key",
+    "correctReply": "恭喜你成功燃燒了一秒份量的腦細胞~\n越過前面的山丘\n我在前面等著你🦹",
+    "hint": "有邊念邊，沒邊別念了會不會!"
+  },
+  "00038": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00038.jpg",
+    "answer": "tax",
+    "correctReply": "哀呀你是想看我的日記嗎?不准!\n不過去書店找Diary of a Wimpy Kid吧!蠻推薦的，我幾千年前還小的時候很愛看...什麼?你說你去不了書店?(竊笑",
+    "hint": "想想A是1*1=1..."
+  },
+  "00039": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00039.jpg",
+    "answer": "7182",
+    "correctReply": "哇!你答對了耶~\n不過我覺得你應該是看了我的臉才猜到的吧?哈哈哈\n不過我還是要說一句:小丑是很可怕的喔!",
+    "hint": "有一個人長得很奇怪，常常在街上嚇人..."
+  },
+  "00040": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00040.jpg",
+    "answer": "9527",
+    "correctReply": "哇!你答對了耶~\n不過我覺得你應該是看了我的臉才猜到的吧?哈哈哈\n不過我還是要說一句:小丑是很可怕的喔!",
+    "hint": "有一個人長得很奇怪，常常在街上嚇人..."
+  },
+  "00041": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00041.png",
+    "answer": "3547",
+    "correctReply": "哇!你答對了耶~\n不過我覺得你應該是看了我的臉才猜到的吧?哈哈哈\n不過我還是要說一句:小丑是很可怕的喔!",
+    "hint": "有一個人長得很奇怪，常常在街上嚇人..."
+  },
+  "00042": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00042.jpg",
+    "answer": "952772143065",
+    "correctReply": "哇!你答對了耶~\n不過我覺得你應該是看了我的臉才猜到的吧?哈哈哈\n不過我還是要說一句:小丑是很可怕的喔!",
+    "hint": "有一個人長得很奇怪，常常在街上嚇人..."
   }
 }
