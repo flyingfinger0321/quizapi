@@ -20,6 +20,21 @@ function loadQuestions() {
   return JSON.parse(fs.readFileSync(questionsPath, 'utf8'));
 }
  
+// ====== 讀取「保留給 LINE 自動回應」的關鍵字清單 ======
+// reserved-keywords.json 格式: ["選單", "說明", ...]
+// 這裡面的字,程式會完全不理、不回應,讓 LINE 官方帳號後台自己的自動回應去處理。
+// 之後在 LINE 後台新增/刪除關鍵字時,回來這裡同步加一筆或刪一筆字串就好。
+const reservedKeywordsPath = path.join(__dirname, 'reserved-keywords.json');
+function loadReservedKeywords() {
+  try {
+    return new Set(JSON.parse(fs.readFileSync(reservedKeywordsPath, 'utf8')));
+  } catch (err) {
+    // 檔案不存在或格式錯誤時,當作沒有排除清單,避免整支程式掛掉
+    console.error('讀取 reserved-keywords.json 失敗:', err.message);
+    return new Set();
+  }
+}
+ 
 // ====== 答錯回覆語句庫(可以一直往裡面加) ======
 const WRONG_REPLIES = [
   '別給我臭酸掉的腦細胞!退貨!!!💩',
@@ -32,6 +47,15 @@ const WRONG_REPLIES = [
 // ====== 答對回覆語句(可自行改成多句隨機,寫法跟答錯一樣) ======
 const CORRECT_REPLIES = [
   '答對了!🎉',
+];
+ 
+// ====== 完全看不懂的輸入(不符合任何指令)時的萬用回覆 ======
+// 注意:因為官方帳號後台的「自動回應訊息」已經關掉了,
+// 所有訊息都會進到這支程式,所以這裡可以放心直接回覆,不用做任何計時判斷。
+const NO_MATCH_REPLIES = [
+  '你在說什麼呢?我這裡只聽得懂題號跟指令喔🤔',
+  '嗯?打錯格式了吧,再檢查一下你打的東西😏',
+  '本王聽不懂人類的語言,麻煩打正確的題號或指令🦹',
 ];
  
 function pickRandom(arr) {
@@ -48,18 +72,74 @@ function parseInput(text) {
   return { code, rest: rest.trim() };
 }
  
-// 把題號依數字排序,回傳排好的字串陣列
+// 把題號依數字排序
 function sortedCodes(codes) {
-  return codes.sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
+  return [...codes].sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
 }
  
-// 依題號清單組出要回覆的文字
-function formatCodeList(title, codes) {
-  if (codes.length === 0) {
-    return `${title}\n目前沒有符合的題目喔`;
+// 陣列切成每 chunkSize 一組
+function chunkArray(arr, chunkSize) {
+  const result = [];
+  for (let i = 0; i < arr.length; i += chunkSize) {
+    result.push(arr.slice(i, i + chunkSize));
   }
-  const lines = sortedCodes(codes).map((c) => `・${c}`);
-  return `${title}(共 ${codes.length} 題)\n${lines.join('\n')}`;
+  return result;
+}
+ 
+// ====== 把題號清單組成「點了會自動送出訊息」的 Flex 按鈕清單 ======
+// 每 20 題一張卡片,超過 20 題會自動變成可以左右滑動的多張卡片(carousel)
+function buildCodeListFlexMessage(title, codes) {
+  const sorted = sortedCodes(codes);
+ 
+  // 沒有符合的題目,直接回純文字就好,不用做按鈕
+  if (sorted.length === 0) {
+    return {
+      type: 'text',
+      text: `${title}\n目前沒有符合的題目喔`,
+    };
+  }
+ 
+  const chunks = chunkArray(sorted, 20);
+ 
+  const buildBubble = (chunk, idx, total) => ({
+    type: 'bubble',
+    header: {
+      type: 'box',
+      layout: 'vertical',
+      contents: [
+        {
+          type: 'text',
+          text: total > 1 ? `${title} (${idx + 1}/${total})` : title,
+          weight: 'bold',
+          size: 'md',
+          wrap: true,
+        },
+      ],
+    },
+    body: {
+      type: 'box',
+      layout: 'vertical',
+      spacing: 'sm',
+      contents: chunk.map((code) => ({
+        type: 'button',
+        style: 'secondary',
+        height: 'sm',
+        action: {
+          type: 'message',
+          label: code,
+          text: code,
+        },
+      })),
+    },
+  });
+ 
+  const bubbles = chunks.map((chunk, idx) => buildBubble(chunk, idx, chunks.length));
+ 
+  return {
+    type: 'flex',
+    altText: `${title}(共 ${sorted.length} 題)`,
+    contents: bubbles.length === 1 ? bubbles[0] : { type: 'carousel', contents: bubbles },
+  };
 }
  
 // ====== Webhook 進入點 ======
@@ -81,15 +161,38 @@ async function handleEvent(event) {
   }
  
   const text = event.message.text.trim();
-  const questions = loadQuestions();
  
-  // ====== 指令一:抽X星 -> 從該星等題目中隨機抽一題,直接出圖 ======
+  // ====== 排除清單:這些字保留給 LINE 官方帳號後台的自動回應處理,本程式完全不回應 ======
+  const reservedKeywords = loadReservedKeywords();
+  if (reservedKeywords.has(text)) {
+    return Promise.resolve(null);
+  }
+ 
+  const questions = loadQuestions();
+  const allCodes = Object.keys(questions);
+ 
+  // ====== 指令:抽題 -> 從「全部題目」中隨機抽一題,直接出圖 ======
+  if (text === '抽題') {
+    if (allCodes.length === 0) {
+      return client.replyMessage(event.replyToken, {
+        type: 'text',
+        text: '題庫目前是空的喔',
+      });
+    }
+    const pickedCode = pickRandom(allCodes);
+    const picked = questions[pickedCode];
+    return client.replyMessage(event.replyToken, {
+      type: 'image',
+      originalContentUrl: picked.image,
+      previewImageUrl: picked.image,
+    });
+  }
+ 
+  // ====== 指令:抽X星 -> 從該星等題目中隨機抽一題,直接出圖 ======
   const drawMatch = text.match(/^抽(\d{1,2})星$/);
   if (drawMatch) {
     const rating = Number(drawMatch[1]);
-    const codes = Object.keys(questions).filter(
-      (code) => Number(questions[code].rating) === rating
-    );
+    const codes = allCodes.filter((code) => Number(questions[code].rating) === rating);
     if (codes.length === 0) {
       return client.replyMessage(event.replyToken, {
         type: 'text',
@@ -105,84 +208,84 @@ async function handleEvent(event) {
     });
   }
  
-  // ====== 指令二:X星 -> 列出該星等的所有題號 ======
+  // ====== 指令:X星 -> 列出該星等的所有題號(點了直接送出題號) ======
   const ratingMatch = text.match(/^(\d{1,2})星$/);
   if (ratingMatch) {
     const rating = Number(ratingMatch[1]);
-    const codes = Object.keys(questions).filter(
-      (code) => Number(questions[code].rating) === rating
+    const codes = allCodes.filter((code) => Number(questions[code].rating) === rating);
+    return client.replyMessage(
+      event.replyToken,
+      buildCodeListFlexMessage(`⭐ ${rating} 星題目`, codes)
     );
-    return client.replyMessage(event.replyToken, {
-      type: 'text',
-      text: formatCodeList(`⭐ ${rating} 星題目`, codes),
-    });
   }
  
-  // ====== 指令三:作者(類別)名稱 -> 列出該作者的所有題號 ======
-  // 只要文字完全等於某個題目的 author 欄位,就視為查目錄指令
+  // ====== 指令:作者(類別)名稱 -> 列出該作者的所有題號 ======
   const allAuthors = new Set(
     Object.values(questions)
       .map((q) => q.author)
       .filter(Boolean)
   );
   if (allAuthors.has(text)) {
-    const codes = Object.keys(questions).filter(
-      (code) => questions[code].author === text
+    const codes = allCodes.filter((code) => questions[code].author === text);
+    return client.replyMessage(
+      event.replyToken,
+      buildCodeListFlexMessage(`📁 ${text} 的題目`, codes)
     );
-    return client.replyMessage(event.replyToken, {
-      type: 'text',
-      text: formatCodeList(`📁 ${text} 的題目`, codes),
-    });
   }
  
-  // ====== 指令四(原本邏輯):題號 / 題號+提示 / 題號+答案 ======
+  // ====== 題號 / 題號+提示 / 題號+答案 ======
   const parsed = parseInput(text);
  
-  // 不符合任何指令格式,完全不處理、不回覆
-  // (避免使用者聊天講其他話時被誤判成答錯)
-  if (!parsed) return Promise.resolve(null);
+  if (parsed) {
+    const { code, rest } = parsed;
+    const question = questions[code];
  
-  const { code, rest } = parsed;
-  const question = questions[code];
+    if (question) {
+      // 情況一:只有輸入題號 -> 回傳題目圖片
+      if (rest === '') {
+        return client.replyMessage(event.replyToken, {
+          type: 'image',
+          originalContentUrl: question.image,
+          previewImageUrl: question.image,
+        });
+      }
  
-  // 題號根本不存在,不回覆(避免誤判)
-  if (!question) return Promise.resolve(null);
+      // 情況二:題號 + 「提示」關鍵字 -> 回傳提示內容
+      if (rest === '提示') {
+        if (question.hint) {
+          return client.replyMessage(event.replyToken, {
+            type: 'text',
+            text: question.hint,
+          });
+        }
+        // 沒設定提示,走到下面的「看不懂」萬用回覆
+      } else {
+        // 情況三:題號 + 答案 -> 判斷對錯
+        const isCorrect =
+          rest.toLowerCase() === String(question.answer).trim().toLowerCase();
  
-  // 情況一:只有輸入題號 -> 回傳題目圖片
-  if (rest === '') {
-    return client.replyMessage(event.replyToken, {
-      type: 'image',
-      originalContentUrl: question.image,
-      previewImageUrl: question.image,
-    });
+        if (isCorrect) {
+          const replyText = question.correctReply || pickRandom(CORRECT_REPLIES);
+          return client.replyMessage(event.replyToken, {
+            type: 'text',
+            text: replyText,
+          });
+        } else {
+          // 答錯:從答錯語句庫隨機挑一句
+          return client.replyMessage(event.replyToken, {
+            type: 'text',
+            text: pickRandom(WRONG_REPLIES),
+          });
+        }
+      }
+    }
   }
  
-  // 情況二:題號 + 「提示」關鍵字 -> 回傳提示內容
-  if (rest === '提示') {
-    if (!question.hint) return Promise.resolve(null); // 沒設定提示就不回應
-    return client.replyMessage(event.replyToken, {
-      type: 'text',
-      text: question.hint,
-    });
-  }
- 
-  // 情況三:題號 + 答案 -> 判斷對錯
-  const isCorrect =
-    rest.toLowerCase() === String(question.answer).trim().toLowerCase();
- 
-  if (isCorrect) {
-    const replyText = question.correctReply || pickRandom(CORRECT_REPLIES);
-    return client.replyMessage(event.replyToken, {
-      type: 'text',
-      text: replyText,
-    });
-  } else {
-    // 答錯:從答錯語句庫隨機挑一句
-    return client.replyMessage(event.replyToken, {
-      type: 'text',
-      text: pickRandom(WRONG_REPLIES),
-    });
-  }
+  // ====== 以上都不符合 -> 完全看不懂,隨機回一句萬用回覆 ======
+  return client.replyMessage(event.replyToken, {
+    type: 'text',
+    text: pickRandom(NO_MATCH_REPLIES),
+  });
 }
  
 const PORT = process.env.PORT || 3000;
