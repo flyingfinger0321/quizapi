@@ -53,10 +53,12 @@ const CORRECT_REPLIES = [
 // 注意:因為官方帳號後台的「自動回應訊息」已經關掉了,
 // 所有訊息都會進到這支程式,所以這裡可以放心直接回覆,不用做任何計時判斷。
 const NO_MATCH_REPLIES = [
-  '你在說什麼呢?我這裡只聽得懂題號跟指令喔🤔',
-  '嗯?打錯格式了吧,再檢查一下你打的東西😏',
-  '本王聽不懂人類的語言,麻煩打正確的題號或指令🦹',
+  '你幹嘛一直想找我聊天R，偷偷喜歡偶是不是😏',
+  '胡鬧!誰准許你亂跟本王講話的!(╯°□°）╯︵ ┻━┻',
+  '本王聽不懂人類的語言,要答題麻煩打正確的題號或指令🤖',
+  '喔是喔==',
 ];
+//'送你一張梗圖' meme還沒設計 統計也還沒設計 20260829
  
 function pickRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -87,8 +89,8 @@ function chunkArray(arr, chunkSize) {
 }
  
 // ====== 把題號清單組成「點了會自動送出訊息」的 Flex 清單,每列左側附縮圖 ======
-// 每 12 題一張卡片(因為多了縮圖,一列比較高,一張卡片放太多題會太長)
-// 超過 12 題會自動變成可以左右滑動的多張卡片(carousel)
+// 每 10 題一張卡片(因為多了縮圖,一列比較高,一張卡片放太多題會太長)
+// 超過 10 題會自動變成可以左右滑動的多張卡片(carousel)
 function buildCodeListFlexMessage(title, codes, questions) {
   const sorted = sortedCodes(codes);
  
@@ -100,7 +102,7 @@ function buildCodeListFlexMessage(title, codes, questions) {
     };
   }
  
-  const chunks = chunkArray(sorted, 12);
+  const chunks = chunkArray(sorted, 10);
  
   // 每一列:左側縮圖 + 右側題號文字,整列都可以點,點了直接送出該題號
   const buildRow = (code) => {
