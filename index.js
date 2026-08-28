@@ -86,12 +86,13 @@ function chunkArray(arr, chunkSize) {
   return result;
 }
  
-// ====== 把題號清單組成「點了會自動送出訊息」的 Flex 按鈕清單 ======
-// 每 20 題一張卡片,超過 20 題會自動變成可以左右滑動的多張卡片(carousel)
-function buildCodeListFlexMessage(title, codes) {
+// ====== 把題號清單組成「點了會自動送出訊息」的 Flex 清單,每列左側附縮圖 ======
+// 每 12 題一張卡片(因為多了縮圖,一列比較高,一張卡片放太多題會太長)
+// 超過 12 題會自動變成可以左右滑動的多張卡片(carousel)
+function buildCodeListFlexMessage(title, codes, questions) {
   const sorted = sortedCodes(codes);
  
-  // 沒有符合的題目,直接回純文字就好,不用做按鈕
+  // 沒有符合的題目,直接回純文字就好,不用做清單
   if (sorted.length === 0) {
     return {
       type: 'text',
@@ -99,7 +100,49 @@ function buildCodeListFlexMessage(title, codes) {
     };
   }
  
-  const chunks = chunkArray(sorted, 20);
+  const chunks = chunkArray(sorted, 12);
+ 
+  // 每一列:左側縮圖 + 右側題號文字,整列都可以點,點了直接送出該題號
+  const buildRow = (code) => {
+    const q = questions[code] || {};
+    // 縮圖優先用 thumbnail 欄位(如果有另外設定小圖的話),沒有就用題目本身的 image
+    const thumbUrl = q.thumbnail || q.image;
+ 
+    const contents = [];
+    if (thumbUrl) {
+      contents.push({
+        type: 'image',
+        url: thumbUrl,
+        size: '50px',
+        aspectMode: 'cover',
+        aspectRatio: '1:1',
+        flex: 0,
+      });
+    }
+    contents.push({
+      type: 'text',
+      text: code,
+      gravity: 'center',
+      flex: 1,
+      size: 'md',
+      weight: 'bold',
+      margin: 'md',
+    });
+ 
+    return {
+      type: 'box',
+      layout: 'horizontal',
+      backgroundColor: '#F5F5F5',
+      cornerRadius: 'md',
+      paddingAll: 'sm',
+      alignItems: 'center',
+      action: {
+        type: 'message',
+        text: code,
+      },
+      contents,
+    };
+  };
  
   const buildBubble = (chunk, idx, total) => ({
     type: 'bubble',
@@ -120,16 +163,7 @@ function buildCodeListFlexMessage(title, codes) {
       type: 'box',
       layout: 'vertical',
       spacing: 'sm',
-      contents: chunk.map((code) => ({
-        type: 'button',
-        style: 'secondary',
-        height: 'sm',
-        action: {
-          type: 'message',
-          label: code,
-          text: code,
-        },
-      })),
+      contents: chunk.map(buildRow),
     },
   });
  
@@ -215,7 +249,7 @@ async function handleEvent(event) {
     const codes = allCodes.filter((code) => Number(questions[code].rating) === rating);
     return client.replyMessage(
       event.replyToken,
-      buildCodeListFlexMessage(`⭐ ${rating} 星題目`, codes)
+      buildCodeListFlexMessage(`⭐ ${rating} 星題目`, codes, questions)
     );
   }
  
@@ -229,7 +263,7 @@ async function handleEvent(event) {
     const codes = allCodes.filter((code) => questions[code].author === text);
     return client.replyMessage(
       event.replyToken,
-      buildCodeListFlexMessage(`📁 ${text} 的題目`, codes)
+      buildCodeListFlexMessage(`📁 ${text} 的題目`, codes, questions)
     );
   }
  
