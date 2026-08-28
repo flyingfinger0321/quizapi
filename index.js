@@ -88,6 +88,29 @@ function chunkArray(arr, chunkSize) {
   return result;
 }
  
+// ====== 組出「圖片 + (可選)備註」的訊息陣列,前面可以再加一則訊息(例如題號) ======
+// question.note 有值時,會在圖片後面多加一則文字訊息顯示備註
+// extra.before 可傳入一則訊息物件,會被放在最前面(例如抽題時的題號文字)
+function buildImageMessages(question, extra = {}) {
+  const messages = [
+    {
+      type: 'image',
+      originalContentUrl: question.image,
+      previewImageUrl: question.image,
+    },
+  ];
+  if (question.note) {
+    messages.push({
+      type: 'text',
+      text: `📝 備註:${question.note}`,
+    });
+  }
+  if (extra.before) {
+    messages.unshift(extra.before);
+  }
+  return messages;
+}
+ 
 // ====== 把題號清單組成「點了會自動送出訊息」的 Flex 清單,每列左側附縮圖 ======
 // 每 10 題一張卡片(因為多了縮圖,一列比較高,一張卡片放太多題會太長)
 // 超過 10 題會自動變成可以左右滑動的多張卡片(carousel)
@@ -217,11 +240,12 @@ async function handleEvent(event) {
     }
     const pickedCode = pickRandom(allCodes);
     const picked = questions[pickedCode];
-    return client.replyMessage(event.replyToken, {
-      type: 'image',
-      originalContentUrl: picked.image,
-      previewImageUrl: picked.image,
-    });
+    return client.replyMessage(
+      event.replyToken,
+      buildImageMessages(picked, {
+        before: { type: 'text', text: `題號:${pickedCode}` },
+      })
+    );
   }
  
   // ====== 指令:抽X星 -> 從該星等題目中隨機抽一題,直接出圖 ======
@@ -237,11 +261,12 @@ async function handleEvent(event) {
     }
     const pickedCode = pickRandom(codes);
     const picked = questions[pickedCode];
-    return client.replyMessage(event.replyToken, {
-      type: 'image',
-      originalContentUrl: picked.image,
-      previewImageUrl: picked.image,
-    });
+    return client.replyMessage(
+      event.replyToken,
+      buildImageMessages(picked, {
+        before: { type: 'text', text: `題號:${pickedCode}` },
+      })
+    );
   }
  
   // ====== 指令:X星 -> 列出該星等的所有題號(點了直接送出題號) ======
@@ -277,13 +302,9 @@ async function handleEvent(event) {
     const question = questions[code];
  
     if (question) {
-      // 情況一:只有輸入題號 -> 回傳題目圖片
+      // 情況一:只有輸入題號 -> 回傳題目圖片(有備註就一併附上)
       if (rest === '') {
-        return client.replyMessage(event.replyToken, {
-          type: 'image',
-          originalContentUrl: question.image,
-          previewImageUrl: question.image,
-        });
+        return client.replyMessage(event.replyToken, buildImageMessages(question));
       }
  
       // 情況二:題號 + 「提示」關鍵字 -> 回傳提示內容
