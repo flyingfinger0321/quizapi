@@ -60,8 +60,26 @@ const NO_MATCH_REPLIES = [
 ];
 //'送你一張梗圖' meme還沒設計 統計也還沒設計 20260829
  
+// ====== 收到貼圖時的回覆語句庫 ======
+const STICKER_REPLIES = [
+  '貼什麼貼圖啦,還不快去答題!😤',
+  '喔~會用貼圖了喔?那答案勒?🤨',
+  '收到貼圖一枚,但本王不吃這套,拿題號來!',
+];
+ 
 function pickRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
+}
+ 
+// 判斷使用者輸入的答案是否正確
+// question.answer 可以是單一字串,也可以是字串陣列(多個都算正確,例如日文/羅馬拼音)
+// 只要符合陣列中任何一個答案,就算答對
+function isAnswerCorrect(userInput, answer) {
+  const answerList = Array.isArray(answer) ? answer : [answer];
+  const normalizedInput = userInput.trim().toLowerCase();
+  return answerList.some(
+    (a) => String(a).trim().toLowerCase() === normalizedInput
+  );
 }
  
 // 判斷使用者輸入是「單純題號」還是「題號+答案」
@@ -215,7 +233,20 @@ app.post('/webhook', line.middleware(config), async (req, res) => {
 });
  
 async function handleEvent(event) {
-  if (event.type !== 'message' || event.message.type !== 'text') {
+  if (event.type !== 'message') {
+    return Promise.resolve(null);
+  }
+ 
+  // ====== 收到貼圖 -> 隨機回一句貼圖語句庫 ======
+  if (event.message.type === 'sticker') {
+    return client.replyMessage(event.replyToken, {
+      type: 'text',
+      text: pickRandom(STICKER_REPLIES),
+    });
+  }
+ 
+  // ====== 其他非文字類型(圖片、影片、音檔、位置、名片等)-> 目前不處理,直接忽略 ======
+  if (event.message.type !== 'text') {
     return Promise.resolve(null);
   }
  
@@ -317,9 +348,8 @@ async function handleEvent(event) {
         }
         // 沒設定提示,走到下面的「看不懂」萬用回覆
       } else {
-        // 情況三:題號 + 答案 -> 判斷對錯
-        const isCorrect =
-          rest.toLowerCase() === String(question.answer).trim().toLowerCase();
+        // 情況三:題號 + 答案 -> 判斷對錯(answer 可以是字串或陣列,符合其中一個就算對)
+        const isCorrect = isAnswerCorrect(rest, question.answer);
  
         if (isCorrect) {
           const replyText = question.correctReply || pickRandom(CORRECT_REPLIES);

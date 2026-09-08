@@ -78,7 +78,7 @@
     "answer": "hand",
     "correctReply": "是想叫我給你拍拍手嗎?想太多了，來，旺福!坐下!🫴🐕",
     "hint": "兩個字母同時塞到左邊和右邊，還要和黑色的接上後變成新的字母，選項好像不多了?",
-    "author": "",
+    "author": "日本作者",
     "rating": 10
   },
   "00010": {
@@ -87,7 +87,7 @@
     "answer": "feel",
     "correctReply": "You FEEL like an idiot, but you are not! You are a genius!🧠",
     "hint": "看起來好像小時候常在公園爬的欄杆喔，但我每次都只會往上爬，橫著爬真的好難QAQ",
-    "author": "",
+    "author": "日本作者",
     "rating": 10
   },
   "00011": {
@@ -96,7 +96,7 @@
     "answer": "glue",
     "correctReply": "哎呀你怎麼知道這八張是用膠水黏的不是便利貼><",
     "hint": "藍色和灰色有什麼共通點?不要跟我說晴天跟陰天喔!反正你現在也看不到☁️",
-    "author": "",
+    "author": "日本作者",
     "rating": 8
   },
   "00012": {
@@ -105,7 +105,7 @@
     "answer": "hero",
     "correctReply": "你來當英雄?癡心妄想!!!!!",
     "hint": "不要害羞 講出來。",
-    "author": "",
+    "author": "日本作者",
     "rating": 10
   },
   "00013": {
@@ -160,7 +160,7 @@
     "answer": "bud",
     "correctReply": "如果你一直陪我到老，我們也算好兄弟了對吧buddy?",
     "hint": "背景有些隱藏的等號，先推敲出其中幾個字，然後再找沒有等號的規律吧!",
-    "author": "",
+    "author": "日本作者",
     "rating": 9
   },
   "00019": {
@@ -169,7 +169,7 @@
     "answer": "tunnel",
     "correctReply": "別看了!隧道後面不會有甜甜圈的...可惡我也好想吃ㄚㄚㄚ🥲",
     "hint": "一個能吃，一個不能吃，但他們長的一樣(不要跟我說生食和熟食喔，扁你👊",
-    "author": "",
+    "author": "日本作者",
     "rating": 8
   },
   "00020": {
@@ -292,7 +292,7 @@
   "00033": {
     "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00033.png",
     "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00033.png&w=150&h=150&fit=cover",
-    "answer": "oyster",
+    "answer": "stylish",
     "correctReply": "哇!你答對了耶~\n不過我覺得你應該是看了我的臉才猜到的吧?哈哈哈\n不過我還是要說一句:小丑是很可怕的喔!",
     "hint": "有一個人長得很奇怪，常常在街上嚇人...",
     "author": "堀地機",
@@ -383,7 +383,7 @@
   "00043": {
     "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00043.jpg",
     "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00043.jpg&w=150&h=150&fit=cover",
-    "answer": "oyster",
+    "answer": "wolf",
     "correctReply": "哇!你答對了耶~\n不過我覺得你應該是看了我的臉才猜到的吧?哈哈哈\n不過我還是要說一句:小丑是很可怕的喔!",
     "hint": "有一個人長得很奇怪，常常在街上嚇人...",
     "author": "",
@@ -392,7 +392,7 @@
   "00044": {
     "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00044.png",
     "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00044.png&w=150&h=150&fit=cover",
-    "answer": "oyster",
+    "answer": "needle",
     "correctReply": "哇!你答對了耶~\n不過我覺得你應該是看了我的臉才猜到的吧?哈哈哈\n不過我還是要說一句:小丑是很可怕的喔!",
     "hint": "有一個人長得很奇怪，常常在街上嚇人...",
     "author": "",
@@ -401,10 +401,150 @@
   "00045": {
     "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00045.jpg",
     "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00045.jpg&w=150&h=150&fit=cover",
-    "answer": "oyster",
+    "answer": "公司",
     "correctReply": "哇!你答對了耶~\n不過我覺得你應該是看了我的臉才猜到的吧?哈哈哈\n不過我還是要說一句:小丑是很可怕的喔!",
     "hint": "有一個人長得很奇怪，常常在街上嚇人...",
     "author": "成大問猜社",
     "rating": 10
+  },
+  "00046": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00046.jpg",
+    "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00046.jpg&w=150&h=150&fit=cover",
+    "answer": "render",
+    "correctReply": "巫吾武悟嗚嗚嗚嗚嗚...不要看我這樣整天陪你講幹話，對我來說是24小時全年無休加班Rrrr🤯",
+    "hint": "念念看?還有看久一點，會有意想不到的收穫喔~",
+    "note": "",
+    "author": "堀地機",
+    "rating": 9
+  },
+  "00047": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00047.jpg",
+    "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00047.jpg&w=150&h=150&fit=cover",
+    "answer": "地",
+    "correctReply": "巫吾武悟嗚嗚嗚嗚嗚...不要看我這樣整天陪你講幹話，對我來說是24小時全年無休加班Rrrr🤯",
+    "hint": "念念看?還有看久一點，會有意想不到的收穫喔~",
+    "note": "",
+    "author": "堀地機",
+    "rating": 8
+  },
+  "00048": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00048.jpg",
+    "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00048.jpg&w=150&h=150&fit=cover",
+    "answer": "driver",
+    "correctReply": "巫吾武悟嗚嗚嗚嗚嗚...不要看我這樣整天陪你講幹話，對我來說是24小時全年無休加班Rrrr🤯",
+    "hint": "念念看?還有看久一點，會有意想不到的收穫喔~",
+    "note": "",
+    "author": "堀地機",
+    "rating": 8
+  },
+  "00049": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00049.jpg",
+    "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00049.jpg&w=150&h=150&fit=cover",
+    "answer": "money",
+    "correctReply": "巫吾武悟嗚嗚嗚嗚嗚...不要看我這樣整天陪你講幹話，對我來說是24小時全年無休加班Rrrr🤯",
+    "hint": "念念看?還有看久一點，會有意想不到的收穫喔~",
+    "note": "",
+    "author": "堀地機",
+    "rating": 10
+  },
+  "00050": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00050.jpg",
+    "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00050.jpg&w=150&h=150&fit=cover",
+    "answer": "同甘共苦",
+    "correctReply": "巫吾武悟嗚嗚嗚嗚嗚...不要看我這樣整天陪你講幹話，對我來說是24小時全年無休加班Rrrr🤯",
+    "hint": "念念看?還有看久一點，會有意想不到的收穫喔~",
+    "note": "",
+    "author": "堀地機",
+    "rating": 10
+  },
+  "00051": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00051.jpg",
+    "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00051.jpg&w=150&h=150&fit=cover",
+    "answer": "豬",
+    "correctReply": "巫吾武悟嗚嗚嗚嗚嗚...不要看我這樣整天陪你講幹話，對我來說是24小時全年無休加班Rrrr🤯",
+    "hint": "念念看?還有看久一點，會有意想不到的收穫喔~",
+    "note": "",
+    "author": "堀地機",
+    "rating": 7
+  },
+  "00052": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00052.jpg",
+    "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00052.jpg&w=150&h=150&fit=cover",
+    "answer": "update",
+    "correctReply": "巫吾武悟嗚嗚嗚嗚嗚...不要看我這樣整天陪你講幹話，對我來說是24小時全年無休加班Rrrr🤯",
+    "hint": "念念看?還有看久一點，會有意想不到的收穫喔~",
+    "note": "",
+    "author": "",
+    "rating": 7
+  },
+  "00053": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00053.jpg",
+    "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00053.jpg&w=150&h=150&fit=cover",
+    "answer": "over",
+    "correctReply": "巫吾武悟嗚嗚嗚嗚嗚...不要看我這樣整天陪你講幹話，對我來說是24小時全年無休加班Rrrr🤯",
+    "hint": "念念看?還有看久一點，會有意想不到的收穫喔~",
+    "note": "",
+    "author": "日本作者",
+    "rating": 7
+  },
+  "00054": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00054.jpg",
+    "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00054.jpg&w=150&h=150&fit=cover",
+    "answer": ["トキメキ", "tokimeki"],
+    "correctReply": "巫吾武悟嗚嗚嗚嗚嗚...不要看我這樣整天陪你講幹話，對我來說是24小時全年無休加班Rrrr🤯",
+    "hint": "念念看?還有看久一點，會有意想不到的收穫喔~",
+    "note": "備註:可以輸入日文🏮也可以輸入羅馬拼音喔!",
+    "author": "日本作者",
+    "rating": 9
+  },
+  "00055": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00055.jpg",
+    "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00055.jpg&w=150&h=150&fit=cover",
+    "answer": ["しかくけい", "shikakukei"],
+    "correctReply": "巫吾武悟嗚嗚嗚嗚嗚...不要看我這樣整天陪你講幹話，對我來說是24小時全年無休加班Rrrr🤯",
+    "hint": "念念看?還有看久一點，會有意想不到的收穫喔~",
+    "note": "備註:可以輸入日文🏮也可以輸入羅馬拼音喔!",
+    "author": "日本作者",
+    "rating": 10
+  },
+  "00056": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00056.jpg",
+    "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00056.jpg&w=150&h=150&fit=cover",
+    "answer": ["coffeeコーヒー", "coffeekoohii"],
+    "correctReply": "巫吾武悟嗚嗚嗚嗚嗚...不要看我這樣整天陪你講幹話，對我來說是24小時全年無休加班Rrrr🤯",
+    "hint": "念念看?還有看久一點，會有意想不到的收穫喔~",
+    "note": "先輸入常見的那個，再輸入另一個!\n備註:如果有需要可以輸入日文🏮也可以輸入羅馬拼音喔!",
+    "author": "日本作者",
+    "rating": 9
+  },
+  "00057": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00057.png",
+    "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00057.jpg&w=150&h=150&fit=cover",
+    "answer": "answer",
+    "correctReply": "巫吾武悟嗚嗚嗚嗚嗚...不要看我這樣整天陪你講幹話，對我來說是24小時全年無休加班Rrrr🤯",
+    "hint": "念念看?還有看久一點，會有意想不到的收穫喔~",
+    "note": "",
+    "author": "",
+    "rating": 7
+  },
+  "00058": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00058.jpg",
+    "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00058.jpg&w=150&h=150&fit=cover",
+    "answer": "image",
+    "correctReply": "巫吾武悟嗚嗚嗚嗚嗚...不要看我這樣整天陪你講幹話，對我來說是24小時全年無休加班Rrrr🤯",
+    "hint": "念念看?還有看久一點，會有意想不到的收穫喔~",
+    "note": "",
+    "author": "",
+    "rating": 10
+  },
+  "00059": {
+    "image": "https://raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00059.jpg",
+    "thumbnail": "https://wsrv.nl/?url=raw.githubusercontent.com/flyingfinger0321/quizapi/main/image/00059.jpg&w=150&h=150&fit=cover",
+    "answer": ["やすい", "yasui"],
+    "correctReply": "巫吾武悟嗚嗚嗚嗚嗚...不要看我這樣整天陪你講幹話，對我來說是24小時全年無休加班Rrrr🤯",
+    "hint": "念念看?還有看久一點，會有意想不到的收穫喔~",
+    "note": "備註:可以輸入日文🏮也可以輸入羅馬拼音喔!",
+    "author": "日本作者",
+    "rating": 6
   }
 }
